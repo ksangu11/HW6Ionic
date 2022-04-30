@@ -1,0 +1,25 @@
+<h1>MapQuest</h1>
+
+<input #changeFrom (keyup)="searchFrom(changeFrom.value)" type="text" [(ngModel)]="from" class="rounded">
+
+<input #changeTo (keyup)="searchTo(changeTo.value)" type="text" [(ngModel)]="to" class="rounded">
+
+<button type="button" (click)="get()" class="rounded"><i>Get Directions</i></button>
+
+<table *ngFor="let direction of directionList">
+    <thead>
+        <th colspan="4">Distance: {{direction.distance}}m - Time: {{direction.time}}</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let detail of direction.detail">
+            <td>
+                <img src='{{detail.iconUrl}}' />
+            </td>
+            <td>{{detail.order}}</td>
+            <td>
+                <a href='{{detail.mapUrl}}' target="_blank">{{detail.narrative}}</a>
+            </td>
+            <td>{{detail.distance}}m</td>
+        </tr>
+    </tbody>
+</table>
