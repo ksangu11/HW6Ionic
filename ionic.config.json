@@ -1,0 +1,7 @@
+{
+  "name": "HW6-Ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
